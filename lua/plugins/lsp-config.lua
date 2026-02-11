@@ -15,7 +15,16 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "clangd", "pylsp", "vtsls", "rust_analyzer", "cssls", "cmake", "djlsp" },
+				ensure_installed = {
+					"lua_ls",
+					"clangd",
+					"pylsp",
+					"vtsls",
+					"rust_analyzer",
+					"cssls",
+					"neocmake",
+					"djlsp",
+				},
 				automatic_installation = true,
 			})
 		end,
@@ -38,7 +47,7 @@ return {
 			vim.lsp.enable("vtsls", lsp_opts)
 			vim.lsp.enable("rust_analyzer", lsp_opts)
 			vim.lsp.enable("cssls", lsp_opts)
-			vim.lsp.enable("cmake", lsp_opts)
+			vim.lsp.enable("neocmake", lsp_opts)
 			vim.lsp.enable("djlsp", lsp_opts)
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
