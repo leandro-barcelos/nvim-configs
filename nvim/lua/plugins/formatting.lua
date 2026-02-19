@@ -7,7 +7,7 @@ return {
     conform.setup({
       formatters_by_ft = {
         c = { "clang-format" },
-        cpp = { "cmake-format" },
+        cpp = { "clang-format" },
         cmake = { "gersemi" },
         lua = { "stylua" },
       },
