@@ -8,6 +8,7 @@ return {
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
+			local mason_codelldb = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb"
 
 			dapui.setup()
 
@@ -59,6 +60,37 @@ return {
 				command = "lldb-dap",
 				name = "lldb",
 			}
+
+			if vim.fn.executable(mason_codelldb) == 1 then
+				dap.adapters.codelldb = {
+					type = "server",
+					port = "${port}",
+					executable = {
+						command = mason_codelldb,
+						args = { "--port", "${port}" },
+					},
+				}
+			end
 		end,
+	},
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"mfussenegger/nvim-dap",
+		},
+		opts = {
+			automatic_installation = true,
+			ensure_installed = { "codelldb" },
+			handlers = {},
+		},
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {},
 	},
 }
