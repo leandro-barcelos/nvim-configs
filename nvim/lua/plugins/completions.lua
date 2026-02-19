@@ -7,7 +7,8 @@ return {
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
-      "hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
 		},
 	},
 	{
@@ -36,6 +37,7 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "path" },
 				}, {
 					{ name = "buffer" },
 				}),
