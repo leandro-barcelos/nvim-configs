@@ -47,6 +47,7 @@ return {
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "LSP go to declaration" })
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "LSP go to implementation" })
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code actions" })
+			vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
 		end,
 	},
 }
