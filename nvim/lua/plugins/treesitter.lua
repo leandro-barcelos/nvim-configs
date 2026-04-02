@@ -4,7 +4,7 @@ return {
   build = ":TSUpdate",
   config = function()
     local ts = require("nvim-treesitter")
-    local languages = { "c", "cpp", "cmake", "lua", "python" }
+    local languages = { "c", "cpp", "cmake", "lua", "python", "json", "jsonc" }
 
     ts.install(languages)
 

@@ -20,6 +20,7 @@ return {
 					"clangd",
 					"neocmake",
 					"pyright",
+					"jsonls",
 				},
 				automatic_installation = true,
 			})
@@ -47,6 +48,16 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("pyright")
+
+			vim.lsp.config("jsonls", {
+				capabilities = capabilities,
+				settings = {
+					json = {
+						validate = { enable = true },
+					},
+				},
+			})
+			vim.lsp.enable("jsonls")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP hover" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition" })
