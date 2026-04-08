@@ -21,6 +21,9 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"windwp/nvim-autopairs",
+		},
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
@@ -50,6 +53,10 @@ return {
 					{ name = "buffer" },
 				}),
 			})
+			local ok_cmp_autopairs, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+			if ok_cmp_autopairs then
+				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			end
 		end,
 	},
 }
